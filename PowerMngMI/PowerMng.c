@@ -24,7 +24,6 @@
 #include "TcuInOutFunctions.h"
 #include "TelemMng.h"
 #include "GeneralDiag.h"
-#include "TcuGeneralFunctions.h"
 #include "IgnitionFilterFunctions.h"
 
 /* -------------------------------- Defines --------------------------------- */     
@@ -209,26 +208,26 @@ void UpdateServiceMonitoringRequest( UI_8 service_id,BOOL req)
 //| Parameters description:
 //|  service_id: Requestor service id
 ///---------------------------------------------------------------------------*/
-//void UpdateServiceGpsHotstartRequest(UI_8 service_id,BOOL status)
-//{
-//    UI_8 n_byte,n_bit;
-//
-//    /* Calculate byte index in flag array */
-//    n_byte = service_id / 8;
-//    /* calculate bit position inside byte */
-//    n_bit = service_id % 8;
-//
-//    /* Enable service DRX */
-//    if(status == TRUE) {
-//        /* Set flag of specified service */
-//        services_hotstart_sts[n_byte] |= (UI_8)(((UI_8)0x01)<<n_bit);
-//    }
-//    /* Disable Service DRX */
-//    else {
-//        /* Clear flag of specified service */
-//        services_hotstart_sts[n_byte] &= (UI_8)(~((UI_8)(((UI_8)0x01)<<n_bit)));
-//    }
-//}
+void UpdateServiceGpsHotstartRequest(UI_8 service_id,BOOL status)
+{
+    UI_8 n_byte,n_bit;
+
+    /* Calculate byte index in flag array */
+    n_byte = service_id / 8;
+    /* calculate bit position inside byte */
+    n_bit = service_id % 8;
+
+    /* Enable service DRX */
+    if(status == TRUE) {
+        /* Set flag of specified service */
+        services_hotstart_sts[n_byte] |= (UI_8)(((UI_8)0x01)<<n_bit);
+    }
+    /* Disable Service DRX */
+    else {
+        /* Clear flag of specified service */
+        services_hotstart_sts[n_byte] &= (UI_8)(~((UI_8)(((UI_8)0x01)<<n_bit)));
+    }
+}
 //
 //
 ///*****************************************************************************
