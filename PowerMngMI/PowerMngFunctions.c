@@ -1098,6 +1098,9 @@ void PowerMngSetDelayedShutdownValue( UI_16 new_value )
     power_delayed_shutdown_value = new_value;
 }
 
-
+UI_16 PowerMngGetDelayedShutdownValue( void )
+{
+    return power_delayed_shutdown_value;
+}
 
 
