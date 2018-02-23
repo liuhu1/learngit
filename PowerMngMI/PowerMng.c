@@ -631,29 +631,29 @@ void UpdateServiceGpsHotstartRequest(UI_8 service_id,BOOL status)
 //    }
 //}
 //
-///*****************************************************************************
-//| Portability: General
-//|----------------------------------------------------------------------------
-//| Routine description:
-//|  * Write in ISO 15765_3 buffer the service on tx status table
-//|---------------------------------------------------------------------------
-//| Parameters description:
-///---------------------------------------------------------------------------*/
-//void PMWriteServicesOnTxStatus(void)
-//{
-//    tp_uds_read_data_by_identifier_resp resp;
-//    UI_8 i;
-//
-//    if(N_SERV_FLAGS <= TP_DIAG_RX_TX_LEN){
-//        /* Get the var that gives access to the answer data buffer	*/
-//        resp = ISO15765_3_GET_RESP_DATA(tp_uds_read_data_by_identifier_resp);
-//
-//        for(i = (UI_8)0;i<N_SERV_FLAGS; i++) {
-//            resp->buffer_dades[i] = services_tcuon_sts[i];
-//        }
-//    }
-//}
-//
+/*****************************************************************************
+| Portability: General
+|----------------------------------------------------------------------------
+| Routine description:
+|  * Write in ISO 15765_3 buffer the service on tx status table
+|---------------------------------------------------------------------------
+| Parameters description:
+/---------------------------------------------------------------------------*/
+void PMWriteServicesOnTxStatus(void)
+{
+    tp_uds_read_data_by_identifier_resp resp;
+    UI_8 i;
+
+    if(N_SERV_FLAGS <= TP_DIAG_RX_TX_LEN){
+        /* Get the var that gives access to the answer data buffer	*/
+        resp = ISO15765_3_GET_RESP_DATA(tp_uds_read_data_by_identifier_resp);
+
+        for(i = (UI_8)0;i<N_SERV_FLAGS; i++) {
+            resp->buffer_dades[i] = services_tcuon_sts[i];
+        }
+    }
+}
+
 /*****************************************************************************
 | Portability: General
 |----------------------------------------------------------------------------
